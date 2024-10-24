@@ -17,13 +17,13 @@ Background:
 @withid
   Scenario Outline: Add employee with providing Employee ID
     #Given user logs in as an admin user
-    When user adds an employee with First Name "<firstName>", Middle Name "<middleName>", Last Name "<lastName>", Employee ID "<employeeId>"
+    When user adds an employee with First Name "<firstName>", Middle Name "<middleName>", Last Name "<lastName>", Employee ID
     And user clicks on save button
     Then user added successfully
 
     Examples:
-      | firstName | middleName | lastName | employeeId |
-      | John      | A.         | Doe      | 5937037482 |
+      | firstName | middleName | lastName |
+      | John      | A.         | Doe      |
 
 @errormsg
   Scenario Outline: Attempt to add an employee with missing information
@@ -38,3 +38,14 @@ Background:
 
 
 
+#don't use, just another version but with hardcoded employee id
+ # @withid
+ # Scenario Outline: Add employee with providing Employee ID
+    #Given user logs in as an admin user
+   # When user adds an employee with First Name "<firstName>", Middle Name "<middleName>", Last Name "<lastName>", Employee ID "<employeeId>"
+   # And user clicks on save button
+    #Then user added successfully
+
+   # Examples:
+    #  | firstName | middleName | lastName | employeeId |
+     # | John      | A.         | Doe      | 5937037482 |

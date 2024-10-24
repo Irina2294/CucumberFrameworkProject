@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class CommonMethods extends PageIntializer {
 
@@ -120,6 +123,24 @@ public class CommonMethods extends PageIntializer {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
+    public class RandomIDGenerator {
 
+        private static final Random random = new Random(); // Single instance for random generation
+        private static final Set<Integer> generatedIDs = new HashSet<>(); // To store unique IDs
 
+        // Method to generate a random ID with a specified upper limit
+        public static int generateRandomID(int upperLimit) {
+            if (upperLimit <= 0) {
+                throw new IllegalArgumentException("Upper limit must be greater than 0.");
+            }
+
+            int id;
+            do {
+                id = random.nextInt(upperLimit); // Generates a random ID between 0 and upperLimit - 1
+            } while (generatedIDs.contains(id)); // Ensure the ID is unique
+
+            generatedIDs.add(id); // Store the unique ID
+            return id;
+        }
+    }
 }

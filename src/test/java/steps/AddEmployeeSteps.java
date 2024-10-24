@@ -63,15 +63,24 @@ public class AddEmployeeSteps extends CommonMethods {
         System.out.println("test passed");
     }
     //**********************************************************************************************************************
-    @When("user adds an employee with First Name {string}, Middle Name {string}, Last Name {string}, Employee ID {string}")
+   /* @When("user adds an employee with First Name {string}, Middle Name {string}, Last Name {string}, Employee ID {string}")
     public void user_adds_an_employee_with_first_name_middle_name_last_name_employee_id(String fn, String mn, String ln, String id) throws InterruptedException {
         addEmployeePage.employeeIDLocator.clear();
         sendText(fn,addEmployeePage.firstnameLocator);
         sendText(mn,addEmployeePage.middlenameLocator);
         sendText(ln,addEmployeePage.lastnameLocator);
+        sendText(String.valueOf(RandomIDGenerator.generateRandomID(1_000_000)),addEmployeePage.employeeIDLocator);
 
-        sendText(id,addEmployeePage.employeeIDLocator);
 
+    }*/
+
+    @When("user adds an employee with First Name {string}, Middle Name {string}, Last Name {string}, Employee ID")
+    public void user_adds_an_employee_with_first_name_middle_name_last_name_employee_id(String fn, String mn, String ln) {
+        addEmployeePage.employeeIDLocator.clear();
+        sendText(fn,addEmployeePage.firstnameLocator);
+        sendText(mn,addEmployeePage.middlenameLocator);
+        sendText(ln,addEmployeePage.lastnameLocator);
+        sendText(String.valueOf(RandomIDGenerator.generateRandomID(1_000_000)),addEmployeePage.employeeIDLocator);
 
     }
     //*********************************************************************************************************************
